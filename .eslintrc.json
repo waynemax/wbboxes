@@ -1,0 +1,89 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "ignoreRestSiblings": true }
+    ],
+    "@typescript-eslint/quotes": ["error", "double"],
+    "@typescript-eslint/no-shadow": "error",
+    "no-param-reassign": "off",
+    "@typescript-eslint/indent": [
+      "warn",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/no-array-index-key": "off",
+    "react/require-default-props": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-shadow": "off",
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "no-console": "warn",
+    "indent": [
+      "warn",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": ["off", "windows"],
+    "prefer-template": "off",
+    "quotes": ["error", "double"],
+    "quote-props": "off",
+    "prefer-arrow-callback": "off",
+    "prefer-destructuring": "off",
+    "semi": ["error", "always"],
+    "space-before-blocks": ["error", "always"],
+    "keyword-spacing": ["error"],
+    "space-infix-ops": ["error"],
+    "object-curly-newline": "off",
+    "no-var": 1,
+    "react/no-unknown-property": "error",
+    "no-class-assign": "warn",
+    "react/jsx-filename-extension": 0,
+    "react/function-component-definition": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "arrow-body-style": "off",
+    "no-useless-escape": "off",
+    "no-plusplus": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "": "never"
+      }
+    ]
+  }
+}

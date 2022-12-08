@@ -1,0 +1,66 @@
+# syntax=docker/dockerfile:experimental
+
+# build source code
+ARG NODEJS_BASE_IMAGE
+ARG DOCKER_PROXY_SRV
+
+FROM $DOCKER_PROXY_SRV/node:${NODEJS_BASE_IMAGE} AS sources
+
+ARG REACT_APP_API_WALLET_URL
+
+WORKDIR /opt/app/
+COPY ./ ./
+
+RUN apk update && apk add python3 make g++ openssl
+
+# generate cert
+RUN mkdir /opt/app/ssl/
+RUN openssl req -x509 -nodes -days 3650 -newkey rsa:4096 -subj "/C=DE/ST=DE/L=DE/O=DE/OU=DE/CN=selfsigned" -keyout /opt/app/ssl/key.pem -out /opt/app/ssl/cert.pem
+RUN cat /opt/app/ssl/cert.pem
+
+ARG NPM_PROXY
+ENV NPM_PROXY=$NPM_PROXY
+
+RUN  printenv
+
+RUN  echo "REACT_APP_API_WALLET_URL"=${REACT_APP_API_WALLET_URL} >> .env
+
+RUN  yarn config set registry $NPM_PROXY
+RUN  yarn --frozen-lockfile
+RUN  NODE_ENV=production yarn build
+
+# run
+FROM $DOCKER_PROXY_SRV/nginx:stable-alpine
+WORKDIR /opt/app/
+
+ARG CI_VERSION
+ARG CI_COMMIT_TIMESTAMP
+
+# copy files
+COPY --from=sources /opt/app/package.json /bin/www/
+COPY --from=sources /opt/app/version.txt /opt/app/
+
+
+# copy folders
+# COPY --from=sources /opt/app/node_modules/ /bin/www/node_modules/
+# COPY --from=sources /opt/app/src/ /bin/www/src/
+# COPY --from=sources /opt/app/dist/ /bin/www/dist/
+# COPY --from=sources /opt/app/public/ /bin/www/public/
+
+COPY --from=sources /opt/app/build/ /bin/www/build/
+
+# nginx section
+COPY --from=sources /opt/app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=sources /opt/app/ssl/cert.pem  /etc/nginx/selfsiged.crt
+COPY --from=sources /opt/app/ssl/key.pem /etc/nginx/selfsiged.key
+# COPY --from=sources /opt/app/env.sh /bin/www/env.sh
+# COPY --from=sources /opt/app/.env /bin/www/.env
+
+# RUN apk add --no-cache bash
+# RUN chmod +x /bin/www/env.sh
+
+LABEL version="${CI_VERSION}"
+LABEL build_date="${CI_COMMIT_TIMESTAMP}"
+
+EXPOSE 443
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

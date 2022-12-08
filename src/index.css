@@ -1,0 +1,31 @@
+body {
+  --color-background-content-area: #f0f2f5;
+  --color-background-card: white;
+}
+
+@font-face {
+  font-family: 'Actay';
+  src: url('./shared/static/fonts/Actay-Regular.woff2') format('woff2'),
+      url('./shared/static/fonts/Actay-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Actay Condensed';
+  src: url('./shared/static/fonts/ActayCondensed-Thin.woff2') format('woff2'),
+      url('./shared/static/fonts/ActayCondensed-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Actay Wide';
+  src: url('./shared/static/fonts/ActayWide-Bold.woff2') format('woff2'),
+      url('./shared/static/fonts/ActayWide-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

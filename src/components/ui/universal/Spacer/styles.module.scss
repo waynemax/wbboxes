@@ -1,0 +1,27 @@
+@import "../../../../shared/static/styles/variables";
+@import "../../../../shared/static/styles/mixins";
+
+.spacer {
+  background: transparent;
+  $spacer_grid_size: 4px;
+  @for $i from 1 through 16 {
+    &-vertical-#{$i} {
+      height: $spacer_grid_size * $i;
+    }
+    &-horizontal-#{$i} {
+      width: $spacer_grid_size * $i;
+    }
+  }
+  @include isMobile {
+    $spacer_grid_size: 3px;
+    @for $i from 2 through 16 {
+      &-vertical-#{$i} {
+        height: $spacer_grid_size * $i;
+      }
+      &-horizontal-#{$i} {
+        height: 2px;
+        width: $spacer_grid_size * $i;
+      }
+    }
+  }
+}
