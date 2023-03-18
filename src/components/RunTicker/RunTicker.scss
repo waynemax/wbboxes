@@ -1,0 +1,13 @@
+.RunTicker {
+  &_wrappeer {
+    width: 100%;
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0.5;
+    color: white;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 0;
+  }
+}

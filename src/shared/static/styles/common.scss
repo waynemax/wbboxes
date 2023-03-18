@@ -7,11 +7,11 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Tahoma', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   letter-spacing: normal;
   font-style: normal;
   overflow-y: scroll;
-  background-color: #f0f2f5 !important;
+  background-color: #000 !important;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -26,17 +26,17 @@ body {
   }
 
   &::-webkit-scrollbar-thumb:vertical {
-    background-color: #f3f3f3;
-    border: 3px solid white;
+    background-color: black;
+    border: 3px solid black;
     border-left: 0;
   }
 
   &:hover::-webkit-scrollbar-thumb:vertical {
-    background-color: #eee;
+    background-color: black;
   }
 
   &::-webkit-scrollbar-thumb:active {
-    background-color: #ccc !important;
+    background-color: black !important;
   }
 }
 

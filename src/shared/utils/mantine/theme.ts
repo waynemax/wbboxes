@@ -16,7 +16,7 @@ const palette: MantineThemeOverride["colors"] = {
 };
 
 export const theme: MantineThemeOverride = {
-  fontFamily: "Actay",
+  fontFamily: "Montserrat",
   colorScheme: "light",
   primaryShade: 8,
   primaryColor: "gray",
@@ -25,9 +25,7 @@ export const theme: MantineThemeOverride = {
     Button: {
       styles: {
         root: {
-          fontFamily: "Actay Wide",
-          fontSize: "14px",
-          lineHeight: "20px",
+          fontFamily: "Montserrat",
         },
       },
     },
@@ -36,7 +34,7 @@ export const theme: MantineThemeOverride = {
         input: {
           "height": "42px",
           "fontSize": "14px",
-          "fontFamily": "Actay",
+          "fontFamily": "Montserrat",
           "&[disabled]": {
             color: "black",
             fontWeight: 800,
@@ -46,12 +44,12 @@ export const theme: MantineThemeOverride = {
     },
     Select: {
       styles: {
-        input: { height: "42px", fontSize: "14px", fontFamily: "Actay" },
+        input: { height: "42px", fontSize: "14px", fontFamily: "Montserrat" },
       },
     },
     Title: {
       styles: {
-        root: { fontFamily: "Actay Wide" },
+        root: { fontFamily: "Montserrat" },
       },
     },
     Menu: {

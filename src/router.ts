@@ -7,7 +7,7 @@ import { switchMatch } from "shared/utils";
 export const routes = [
   ...Object.values(Route).map((el) =>
     switchMatch(el, {
-      [Route.CLIENTS_SCREEN]: {
+      [Route.MAIN_SCREEN]: {
         name: el,
         path: "/",
       },

@@ -36,4 +36,3 @@ axiosInstance.interceptors.response.use(
 );
 
 export const API_URL = APP_ENV.REACT_APP_API_WALLET_URL;
-// export const API_URL = "https://s-lwapi-c7-dev.clim7.xyz/api/v1";

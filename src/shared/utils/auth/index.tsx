@@ -81,5 +81,4 @@ export const logOut = async () => {
 
   removeAccessToken();
   const redirectUri = encodeURIComponent(window.location.origin);
-  // TODO blocked by LIMCORE-447 Эндпоинт для получения reset password url
 };
