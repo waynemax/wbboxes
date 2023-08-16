@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { modalsReducer, authReducer, clientsReducer } from "./slices";
+import { modalsReducer } from "./slices";
 
 export const store = configureStore({
   reducer: {
     modals: modalsReducer,
-    auth: authReducer,
-    clients: clientsReducer,
   },
 });
 

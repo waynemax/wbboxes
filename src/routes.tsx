@@ -2,7 +2,7 @@ import { useRoute } from "react-router5";
 import { Route } from "shared/definitions";
 import NotWrapper from "./pages/wrappers/NotWrapper";
 import { NotFound } from "./pages/NotFound";
-import { Clients, MainWrapper, Transactions, Client, Main } from "./pages";
+import { MainWrapper, Main } from "./pages";
 
 export default function Routes() {
   const routeState = useRoute();
@@ -13,18 +13,6 @@ export default function Routes() {
     case Route.MAIN_SCREEN:
       Wrapper = NotWrapper;
       Component = Main;
-      break;
-    case Route.CLIENTS_SCREEN:
-      Wrapper = MainWrapper;
-      Component = Clients;
-      break;
-    case Route.CLIENT_SCREEN:
-      Wrapper = MainWrapper;
-      Component = Client;
-      break;
-    case Route.TRANSACTIONS_SCREEN:
-      Wrapper = MainWrapper;
-      Component = Transactions;
       break;
     default:
       Wrapper = NotWrapper;

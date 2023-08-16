@@ -11,10 +11,6 @@ export const routes = [
         name: el,
         path: "/",
       },
-      [Route.CLIENT_SCREEN]: {
-        name: el,
-        path: `/${el}/:cid`,
-      },
       default: {
         name: el,
         path: `/${el}`,
