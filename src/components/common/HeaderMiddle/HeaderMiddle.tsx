@@ -3,6 +3,7 @@ import { createStyles, Header, Group, ActionIcon, Container, Burger, rem, Mantin
 import { useDisclosure } from "@mantine/hooks";
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from "@tabler/icons-react";
 import { ReactComponent as LogoIcon } from "shared/static/icons/logo.svg";
+import { LanguagePicker } from "../LanguagePicker";
 
 const useStyles = createStyles((theme: MantineTheme) => ({
   inner: {
@@ -25,7 +26,7 @@ const useStyles = createStyles((theme: MantineTheme) => ({
   },
 
   social: {
-    width: rem(150),
+    width: rem(250),
 
     [theme.fn.smallerThan("sm")]: {
       width: "auto",
@@ -94,7 +95,7 @@ export function HeaderMiddle({ links }: HeaderMiddleProps) {
   ));
 
   return (
-    <Header height={56} mb={40}>
+    <Header height={56}>
       <Container className={classes.inner} size="lg">
         <Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
 
@@ -114,9 +115,7 @@ export function HeaderMiddle({ links }: HeaderMiddleProps) {
           <ActionIcon size="lg">
             <IconBrandYoutube size="1.1rem" stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandInstagram size="1.1rem" stroke={1.5} />
-          </ActionIcon>
+          <LanguagePicker />
         </Group>
       </Container>
     </Header>

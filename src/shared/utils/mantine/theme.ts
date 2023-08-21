@@ -19,7 +19,7 @@ export const theme: MantineThemeOverride = {
   fontFamily: "Montserrat",
   colorScheme: "light",
   primaryShade: 8,
-  primaryColor: "pink",
+  primaryColor: "grape",
   colors: palette,
   components: {
     Button: {

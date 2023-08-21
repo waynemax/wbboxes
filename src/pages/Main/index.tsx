@@ -1,12 +1,13 @@
 import { createStyles, Image, Container, Title, Button, Group, Text, List, ThemeIcon, rem, Space } from "@mantine/core";
 import { IconCheck } from "@tabler/icons";
 import image from "./image.png";
-import { HeaderMiddle } from "../../components/common/HeaderMiddle/HeaderMiddle";
-import { AboutBlocks, FaqWithHeader } from "../features";
+import { AboutBlocks, FaqWithHeader, InvestmentPreview, LastNews, LinksBlocks } from "../features";
+import { FaqSimple } from "../features/Faq/FaqSimple";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     boxShadow: "0 0 30px 1px rgba(0,0,0,0.1)",
+    minHeight: "calc(100vh - 60px)",
   },
 
   inner: {
@@ -65,20 +66,12 @@ export const Main = () => {
   const { classes } = useStyles();
 
   return (
-    <div>
+    <div className="w-100">
       <div className={classes.wrapper}>
-        <HeaderMiddle
-          links={[
-            { link: "/", label: "Главная" },
-            { link: "/products", label: "Продукты" },
-            { link: "/invest", label: "Инвесторам" },
-            { link: "/dealers", label: "Дилерам" },
-            { link: "/about", label: "О компании" },
-          ]}
-        />
         <Container size="lg">
           <div className={classes.inner}>
             <div className={classes.content}>
+              <Space h={60} />
               <Title className={classes.title}>
                 Вы полюбите <span className={classes.highlight}>новое</span>{" "}
                 <span className={classes.highlight}>поколение</span> X-PHONE смартфонов!
@@ -104,7 +97,6 @@ export const Main = () => {
                   <b>Новая операционная система</b> – на базе новой операционной системы X-OS!
                 </List.Item>
               </List>
-
               <Group mt={30}>
                 <Button radius="md" size="md" className={classes.control}>
                   Инвестировать
@@ -119,17 +111,18 @@ export const Main = () => {
           </div>
         </Container>
       </div>
+      <LinksBlocks />
       <AboutBlocks />
+      <InvestmentPreview />
+      <LastNews />
       <FaqWithHeader
         categories={[
           { image: "", label: "dfsdf" },
           { image: "", label: "dfsdf" },
           { image: "", label: "dfsdf" },
-          { image: "", label: "dfsdf" },
-          { image: "", label: "dfsdf" },
-          { image: "", label: "dfsdf" },
         ]}
       />
+      <FaqSimple />
     </div>
   );
 };

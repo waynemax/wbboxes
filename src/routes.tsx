@@ -1,8 +1,9 @@
 import { useRoute } from "react-router5";
 import { Route } from "shared/definitions";
 import NotWrapper from "./pages/wrappers/NotWrapper";
+import { MainWrapper } from "./pages/wrappers/MainWrapper";
 import { NotFound } from "./pages/NotFound";
-import { MainWrapper, Main } from "./pages";
+import { Main } from "./pages";
 
 export default function Routes() {
   const routeState = useRoute();
@@ -11,7 +12,7 @@ export default function Routes() {
 
   switch (routeState.route.name) {
     case Route.MAIN_SCREEN:
-      Wrapper = NotWrapper;
+      Wrapper = MainWrapper;
       Component = Main;
       break;
     default:
