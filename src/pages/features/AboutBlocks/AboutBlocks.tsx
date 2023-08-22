@@ -1,4 +1,4 @@
-import { Grid, Skeleton, Container, createStyles, rem, Text, Title, Space } from "@mantine/core";
+import { Grid, Container, createStyles, rem, Text, Space } from "@mantine/core";
 
 import CardImage from "shared/static/icons/card.png";
 import ResumeImage from "shared/static/icons/resume.png";
@@ -15,7 +15,6 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
-
   minItem: {
     flex: 1,
     margin: 0,

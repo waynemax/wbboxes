@@ -16,12 +16,9 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
 
   icon: {
     marginRight: theme.spacing.md,
-    backgroundImage:
-      variant === "gradient"
-        ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
-            theme.colors[theme.primaryColor][6]
-          } 100%)`
-        : "none",
+    backgroundImage: `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
+      theme.colors[theme.primaryColor][6]
+    } 100%)`,
     backgroundColor: "transparent",
   },
 

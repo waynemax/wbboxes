@@ -1,6 +1,6 @@
 import { Button, Container, createStyles, rem, Space, Text } from "@mantine/core";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   wrapper: {
     width: "100%",
   },

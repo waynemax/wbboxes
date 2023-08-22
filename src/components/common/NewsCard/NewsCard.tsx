@@ -1,5 +1,4 @@
-import { IconHeart } from "@tabler/icons-react";
-import { Card, Image, Text, Group, Badge, Button, ActionIcon, createStyles, rem, SimpleGrid } from "@mantine/core";
+import { Card, Image, Text, Group, Button, createStyles, rem } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -27,12 +26,11 @@ const useStyles = createStyles((theme) => ({
 interface BadgeCardProps {
   image: string;
   title: string;
-  country: string;
   description: string;
 }
 
-export function NewsCard({ image, title, description, country }: BadgeCardProps) {
-  const { classes, theme } = useStyles();
+export function NewsCard({ image, title, description }: BadgeCardProps) {
+  const { classes } = useStyles();
 
   return (
     <Card withBorder radius="lg" p="md" className={classes.card}>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createStyles, Header, Group, ActionIcon, Container, Burger, rem, MantineTheme } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from "@tabler/icons-react";
+import { IconBrandTwitter, IconBrandYoutube } from "@tabler/icons-react";
 import { ReactComponent as LogoIcon } from "shared/static/icons/logo.svg";
 import { LanguagePicker } from "../LanguagePicker";
 

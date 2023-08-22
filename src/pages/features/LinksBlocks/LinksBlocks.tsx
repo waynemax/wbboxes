@@ -2,7 +2,7 @@ import { createStyles, Text } from "@mantine/core";
 import classNames from "classnames";
 import GlassImage from "shared/static/icons/glass.png";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   wrapper: {
     minHeight: "100vh",
     width: "100%",

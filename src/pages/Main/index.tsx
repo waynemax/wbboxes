@@ -1,4 +1,4 @@
-import { createStyles, Image, Container, Title, Button, Group, Text, List, ThemeIcon, rem, Space } from "@mantine/core";
+import { createStyles, Image, Container, Title, Button, Group, List, ThemeIcon, rem, Space } from "@mantine/core";
 import { IconCheck } from "@tabler/icons";
 import image from "./image.png";
 import { AboutBlocks, FaqWithHeader, InvestmentPreview, LastNews, LinksBlocks } from "../features";
