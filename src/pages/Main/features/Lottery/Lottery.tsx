@@ -31,7 +31,7 @@ const useStyles = createStyles(() => ({
   },
   giftWrapper: {
     backgroundColor: "rgba(255,255,255,0.05)",
-    minHeight: "15vh",
+    minHeight: "60px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -77,11 +77,13 @@ export const Lottery = () => {
     <div
       className={classNames([classes.wrapper])}
       style={{
-        backgroundColor: ThemesColors[config.theme ?? "default"].backgroundColor,
-        color: ThemesColors[config.theme ?? "default"].textColor,
-        boxShadow: `inset 0 0 0 10px ${ThemesColors[config.theme ?? "default"].backgroundColor}, inset 0 0 0 12px ${
-          ThemesColors[config.theme ?? "default"].borderColor
-        }`,
+        ...{
+          backgroundColor: ThemesColors[config.theme ?? "default"].backgroundColor,
+          color: ThemesColors[config.theme ?? "default"].textColor,
+          boxShadow: `inset 0 0 0 10px ${ThemesColors[config.theme ?? "default"].backgroundColor}, inset 0 0 0 12px ${
+            ThemesColors[config.theme ?? "default"].borderColor
+          }`,
+        },
       }}>
       {!isLotteryStep && (
         <div>
