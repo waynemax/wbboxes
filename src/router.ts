@@ -9,7 +9,7 @@ export const routes = [
     switchMatch(el, {
       [Route.MAIN_SCREEN]: {
         name: el,
-        path: "/",
+        path: "/:q<[a-zA-z0-9-]{1,16}>",
       },
       default: {
         name: el,

@@ -8,6 +8,7 @@ import Routes from "./routes";
 
 export default function App(props: any) {
   const { route } = useRoute();
+
   return (
     <MantineProvider theme={theme} withCSSVariables withGlobalStyles withNormalizeCSS>
       <Provider store={store}>

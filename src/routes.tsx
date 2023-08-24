@@ -1,9 +1,8 @@
 import { useRoute } from "react-router5";
 import { Route } from "shared/definitions";
 import NotWrapper from "./pages/wrappers/NotWrapper";
-import { MainWrapper } from "./pages/wrappers/MainWrapper";
 import { NotFound } from "./pages/NotFound";
-import { Main } from "./pages";
+import { Main, MainWrapper } from "./pages";
 
 export default function Routes() {
   const routeState = useRoute();
