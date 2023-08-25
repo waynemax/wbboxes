@@ -83,6 +83,8 @@ export const Lottery = () => {
           boxShadow: `inset 0 0 0 10px ${ThemesColors[config.theme ?? "default"].backgroundColor}, inset 0 0 0 12px ${
             ThemesColors[config.theme ?? "default"].borderColor
           }`,
+          alignItems: isLotteryStep ? "flex-start" : "center",
+          justifyContent: isLotteryStep ? "flex-start" : "center",
         },
       }}>
       {!isLotteryStep && (
