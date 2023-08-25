@@ -75,7 +75,7 @@ export const Lottery = () => {
 
   return (
     <div
-      className={classNames([classes.wrapper])}
+      className={classNames([classes.wrapper, "no_select"])}
       style={{
         ...{
           backgroundColor: ThemesColors[config.theme ?? "default"].backgroundColor,
