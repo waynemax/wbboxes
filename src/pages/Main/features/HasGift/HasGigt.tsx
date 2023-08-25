@@ -36,8 +36,10 @@ export const HasGigt = () => {
 
   const currentStorageQR = getQR();
 
-  if (!(allowsURLs.indexOf(currentStorageQR!) > -1)) {
-    return <NotFound />;
+  if (!localStorage.getItem(url)) {
+    if (!(allowsURLs.indexOf(currentStorageQR!) > -1)) {
+      return <NotFound />;
+    }
   }
 
   const config = data[url];

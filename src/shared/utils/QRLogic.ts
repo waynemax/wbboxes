@@ -133,6 +133,7 @@ export const allowsURLs = ["melniza", "powerbank-1", "darsonval", "vinnabor", "b
 export const setQR = (setKey: string) => {
   if (allowsKeys.indexOf(`${storageKeyPrefix}${setKey}`) > -1) {
     window?.localStorage.setItem(storageKey, setKey);
+    window?.localStorage.setItem(setKey, "1");
   }
 };
 

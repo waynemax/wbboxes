@@ -13,7 +13,7 @@ export const Main = () => {
   }
 
   const currentStorageQR = getQR();
-  if (currentStorageQR === url) {
+  if (currentStorageQR === url || localStorage.getItem(url)) {
     return <HasGigt />;
   }
 
