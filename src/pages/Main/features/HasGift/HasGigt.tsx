@@ -56,11 +56,15 @@ export const HasGigt = () => {
       }}>
       <div>
         <div>
-          <h2>Поздравляем, Победитель!</h2>
+          <h2>
+            <strong>Поздравляем, Победитель!</strong>
+          </h2>
         </div>
         <Space mt={24} />
         <div>
-          <div>За оставленный отзыв 5 звезд с фото на товар</div>
+          <div>
+            За оставленный <strong>отзыв 5 звезд</strong> с фото на товар
+          </div>
           <div className="display_flex">
             <Rating
               mt={16}
@@ -77,11 +81,11 @@ export const HasGigt = () => {
               }}
             />
           </div>
-          <div>мы подарим тебе уникальную книгу, разработанную всей нашей командой:</div>
+          <div>Мы подарим тебе уникальную книгу, разработанную всей нашей командой:</div>
         </div>
         <Space mt={24} />
         <div>
-          <strong>{config.giftName}</strong>
+          <strong>«{config.giftName}»</strong>
         </div>
         <Space mt={36} />
       </div>

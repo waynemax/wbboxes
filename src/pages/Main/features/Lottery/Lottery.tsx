@@ -13,7 +13,6 @@ import GiftRed from "shared/static/icons/png/gift_red.png";
 import GiftViolet from "shared/static/icons/png/gift_violet.png";
 import GiftYellow from "shared/static/icons/png/gift_yellow.png";
 import DMSLogo from "shared/static/icons/png/dms.png";
-import { ReactComponent as GiftIcon } from "./assets/gift.svg";
 import { HasGigt } from "../HasGift";
 
 const useStyles = createStyles(() => ({
