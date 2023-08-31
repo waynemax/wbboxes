@@ -6,7 +6,6 @@ import { Button, createStyles, Rating, Space } from "@mantine/core";
 import classNames from "classnames";
 import { useViewportSize } from "@mantine/hooks";
 import { switchMatch } from "shared/utils";
-import { useLayoutEffect } from "react";
 import { NotFound } from "../../../NotFound";
 
 const useStyles = createStyles(() => ({
@@ -44,12 +43,6 @@ export const HasGigt = () => {
   const html = document.documentElement;
 
   const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-
-  useLayoutEffect(() => {
-    if (height) {
-      console.log("x", h);
-    }
-  }, [h, height]);
 
   if (!(allowsURLs.indexOf(url) > -1)) {
     return <NotFound />;
@@ -110,7 +103,7 @@ export const HasGigt = () => {
         <div className={classes.book}>
           <img alt="book" src={config.giftImage} />
         </div>
-        <Space mt={24} />
+        <Space mt={16} />
       </div>
       <Button
         variant="outline"
@@ -130,7 +123,6 @@ export const HasGigt = () => {
         }}>
         Забрать подарок
       </Button>
-
       {height > 0 && <Confetti numberOfPieces={500} width={width} height={h} tweenDuration={3000} recycle={false} />}
     </div>
   );
