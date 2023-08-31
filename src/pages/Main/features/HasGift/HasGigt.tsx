@@ -130,6 +130,7 @@ export const HasGigt = () => {
         }}>
         Забрать подарок
       </Button>
+
       {height > 0 && <Confetti numberOfPieces={500} width={width} height={h} tweenDuration={3000} recycle={false} />}
     </div>
   );
