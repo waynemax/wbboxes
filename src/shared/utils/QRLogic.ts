@@ -1,3 +1,7 @@
+import ReceptBook from "shared/static/icons/png/recept.png";
+import VineBook from "shared/static/icons/png/vine.png";
+import FitnessBook from "shared/static/icons/png/fitness.png";
+
 const storageKeyPrefix = "product_";
 const storageKey = "qr_";
 
@@ -10,6 +14,7 @@ type TQR = {
   brand: string;
   theme: TTheme;
   giftName: string;
+  giftImage: any;
 };
 
 export const data: Record<string, TQR> = {
@@ -18,36 +23,42 @@ export const data: Record<string, TQR> = {
     brand: "GreekDar",
     theme: "coffeeDark",
     giftName: "Рецепты красоты и молодости. Натуральные средства для женского сияния.",
+    giftImage: ReceptBook,
   },
   "powerbank-1": {
     name: "Продукт Dark Shark",
     brand: "DMS",
     theme: "neon",
     giftName: "Комфортный фитнес. Секреты эффективных домашних тренировок.",
+    giftImage: FitnessBook,
   },
   "darsonval": {
     name: "Аппарат Дарсонваль",
     brand: "GreekDar",
     theme: "sea",
     giftName: "Рецепты красоты и молодости. Натуральные средства для женского сияния.",
+    giftImage: ReceptBook,
   },
   "vinnabor": {
     name: "Винный набор",
     brand: "GreekDar",
     theme: "vine",
     giftName: "Вино как отдельный вид искусства. Мастерство создания и искусство потребления.",
+    giftImage: VineBook,
   },
   "blender": {
     name: "Блендер",
     brand: "GreekDar",
     theme: "fruits",
     giftName: "Рецепты красоты и молодости. Натуральные средства для женского сияния.",
+    giftImage: ReceptBook,
   },
   "stoliki": {
     name: "Столика-поднос",
     brand: "GreekDar",
     theme: "coffeeLight",
     giftName: "Вино как отдельный вид искусства. Мастерство создания и искусство потребления.",
+    giftImage: VineBook,
   },
 };
 
