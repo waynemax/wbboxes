@@ -4,6 +4,15 @@ import { useRoute } from "react-router5";
 import { Button, createStyles, Space } from "@mantine/core";
 import classNames from "classnames";
 import { switchMatch } from "shared/utils";
+import GreekDarLogo from "shared/static/icons/png/greekdar.png";
+import GreekDarLogoBlack from "shared/static/icons/png/greekdar_black.png";
+// import DMSLogoBlack from "shared/static/icons/png/dms_black.png";
+import GiftCofee from "shared/static/icons/png/gift_coffee.png";
+import GiftGreen from "shared/static/icons/png/gift_green.png";
+import GiftRed from "shared/static/icons/png/gift_red.png";
+import GiftViolet from "shared/static/icons/png/gift_violet.png";
+import GiftYellow from "shared/static/icons/png/gift_yellow.png";
+import DMSLogo from "shared/static/icons/png/dms.png";
 import { ReactComponent as GiftIcon } from "./assets/gift.svg";
 import { HasGigt } from "../HasGift";
 
@@ -50,6 +59,11 @@ const useStyles = createStyles(() => ({
       margin: "auto,",
     },
   },
+  logo: {
+    img: {
+      maxHeight: "150px",
+    },
+  },
 }));
 
 export const Lottery = () => {
@@ -90,17 +104,28 @@ export const Lottery = () => {
       {!isLotteryStep && (
         <div>
           <div>
-            <div>
-              <h1>{config.brand}</h1>
+            <Space mt={24} />
+            <div className={classes.logo}>
+              {switchMatch(config.theme, {
+                coffeeLight: <img src={GreekDarLogoBlack} alt="gd" />,
+                default: switchMatch(config.brand.toLowerCase(), {
+                  greekdar: <img src={GreekDarLogo} alt="greek dar" />,
+                  dms: <img src={DMSLogo} alt="dms" />,
+                  default: <img src={GreekDarLogo} alt="greek dar" />,
+                }),
+              })}
             </div>
+            <Space mt={24} />
             <div>
-              <h2 style={{ lineHeight: "30px" }}>Беспроигрышная лотерея</h2>
+              <h3 style={{ lineHeight: "30px" }}>Беспроигрышная лотерея</h3>
             </div>
           </div>
           <Space mt={24} />
-          <div>Вы приобрели товар {config.name}, за это вам полагается подарок!</div>
-          <Space mt={24} />
-          <div>Хочешь подарок? Забирай свой!</div>
+          <div>
+            Хочешь подарок?
+            <br />
+            Забирай свой!
+          </div>
           <Button
             mt={36}
             variant="outline"
@@ -117,32 +142,51 @@ export const Lottery = () => {
         </div>
       )}
       {isLotteryStep && (
-        <div className={classes.gifts}>
-          {Array.from(Array(9).keys()).map((i, k) => {
-            return (
-              <div
-                onClick={() => {
-                  setSelectedGift(k);
-                  handleSetQR();
-                }}
-                key={`keygify${k}`}
-                className={classNames(classes.giftWrapper, {
-                  [classes.giftWrapperSelected]: selectedGift === k,
-                })}
-                style={{
-                  backgroundColor: switchMatch(url, {
-                    "stoliki": "#ffdbb3",
-                    "powerbank-1": "#241150",
-                    "default": "rgba(255,255,255,0.05)",
-                  }),
-                }}>
-                <div className={classes.giftIconWrapper}>
-                  <GiftIcon style={{ color: ThemesColors[config.theme ?? "default"].borderColor }} />
-                  <div>{k + 1}</div>
+        <div className="w-100">
+          <h3>
+            А теперь
+            <br />
+            выбери свой приз!
+          </h3>
+          <Space mt={24} />
+          <div className={classes.gifts}>
+            {Array.from(Array(9).keys()).map((i, k) => {
+              return (
+                <div
+                  onClick={() => {
+                    setSelectedGift(k);
+                    handleSetQR();
+                  }}
+                  key={`keygify${k}`}
+                  className={classNames(classes.giftWrapper, {
+                    [classes.giftWrapperSelected]: selectedGift === k,
+                  })}
+                  style={{
+                    backgroundColor: switchMatch(url, {
+                      "stoliki": "#faf0e6",
+                      "powerbank-1": "#241150",
+                      "default": "rgba(255,255,255,0.05)",
+                    }),
+                  }}>
+                  <div className={classes.giftIconWrapper}>
+                    <img
+                      alt="gift"
+                      src={switchMatch(url, {
+                        "melniza": GiftCofee,
+                        "blender": GiftCofee,
+                        "vinnabor": GiftRed,
+                        "darsonval": GiftGreen,
+                        "stoliki": GiftRed,
+                        "powerbank-1": GiftViolet,
+                        "default": GiftYellow,
+                      })}
+                    />
+                    <div>{k + 1}</div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       )}
     </div>
