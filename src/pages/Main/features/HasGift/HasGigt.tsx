@@ -26,10 +26,10 @@ const useStyles = createStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "24px 0",
+    padding: "8px 0",
     img: {
       margin: "auto",
-      maxHeight: "150px",
+      maxHeight: "130px",
     },
   },
 }));
@@ -75,21 +75,21 @@ export const HasGigt = () => {
       }}>
       <div>
         <div>
-          <h2 style={{ lineHeight: "35px" }}>
-            <strong>Поздравляем, Победитель!</strong>
+          <h2 style={{ lineHeight: "20px" }}>
+            <strong>Поздравляем!</strong>
           </h2>
         </div>
-        <Space mt={24} />
+        <Space mt={16} />
         <div>
           <div>
             За оставленный <strong>отзыв 5 звезд</strong> с фото на товар
           </div>
           <div className="display_flex">
             <Rating
-              mt={16}
-              mb={16}
+              mt={12}
+              mb={12}
               defaultValue={5}
-              size="xl"
+              size="md"
               value={5}
               color={switchMatch(url, {
                 default: "yellow",
@@ -99,11 +99,11 @@ export const HasGigt = () => {
               }}
             />
           </div>
-          <div>Мы подарим тебе уникальную книгу, разработанную всей нашей командой:</div>
+          <div style={{ fontSize: "16px" }}>Мы подарим тебе уникальную книгу, разработанную всей нашей командой:</div>
         </div>
-        <Space mt={24} />
+        <Space mt={16} />
         <div>
-          <strong>«{config.giftName}»</strong>
+          <strong style={{ fontSize: "16px" }}>«{config.giftName}»</strong>
         </div>
         <div className={classes.book}>
           <img alt="book" src={config.giftImage} />
