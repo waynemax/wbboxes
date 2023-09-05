@@ -6,6 +6,7 @@ import { Button, createStyles, Rating, Space } from "@mantine/core";
 import classNames from "classnames";
 import { useViewportSize } from "@mantine/hooks";
 import { switchMatch } from "shared/utils";
+import { useEffect } from "react";
 import { NotFound } from "../../../NotFound";
 
 const useStyles = createStyles(() => ({
@@ -38,11 +39,15 @@ export const HasGigt = () => {
   const { classes } = useStyles();
   const url = route?.params?.q;
   const { width, height } = useViewportSize();
-
+  let config: any = {};
   const body = document.body;
   const html = document.documentElement;
 
   const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = `${ThemesColors[config.theme ?? "default"].backgroundColor}`;
+  }, [config?.theme]);
 
   if (!(allowsURLs.indexOf(url) > -1)) {
     return <NotFound />;
@@ -56,7 +61,7 @@ export const HasGigt = () => {
     }
   }
 
-  const config = data[url];
+  config = data[url];
 
   return (
     <div

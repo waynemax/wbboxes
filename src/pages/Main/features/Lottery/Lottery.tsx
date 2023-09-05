@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { data, setQR, ThemesColors } from "shared/utils/QRLogic";
 import { useRoute } from "react-router5";
 import { Button, createStyles, Space } from "@mantine/core";
@@ -18,7 +18,7 @@ import { HasGigt } from "../HasGift";
 const useStyles = createStyles(() => ({
   wrapper: {
     width: "100%",
-    minHeight: "100vh",
+    minHeight: "calc(100vh - 80px)",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-start",
@@ -81,6 +81,10 @@ export const Lottery = () => {
   }, [url]);
 
   const config = data[url];
+
+  useEffect(() => {
+    document.body.style.backgroundColor = `${ThemesColors[config.theme ?? "default"].backgroundColor}`;
+  }, [config.theme]);
 
   if (isRedirect) {
     return <HasGigt />;
