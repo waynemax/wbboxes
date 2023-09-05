@@ -12,7 +12,7 @@ import { NotFound } from "../../../NotFound";
 const useStyles = createStyles(() => ({
   wrapper: {
     width: "100%",
-    minHeight: "100vh",
+    minHeight: "calc(100vh - 120px)",
     display: "flex",
     flexDirection: "column",
     boxSizing: "border-box",
