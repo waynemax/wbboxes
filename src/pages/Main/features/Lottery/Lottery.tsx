@@ -18,7 +18,7 @@ import { HasGigt } from "../HasGift";
 const useStyles = createStyles(() => ({
   wrapper: {
     width: "100%",
-    minHeight: "calc(100vh - 100px)",
+    minHeight: "calc(100vh - 120px)",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-start",
