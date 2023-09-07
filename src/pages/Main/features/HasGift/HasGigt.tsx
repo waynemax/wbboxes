@@ -82,7 +82,8 @@ export const HasGigt = () => {
         <Space mt={16} />
         <div>
           <div>
-            За оставленный <strong>отзыв 5 звезд</strong> с фото на товар
+            Оставь <strong>отзыв 5 ЗВЕЗД</strong> с фотографией товара, <strong>ПРИШЛИТЕ скриншот</strong> ниже по
+            кнопке «Забрать подарок»
           </div>
           <div className="display_flex">
             <Rating
