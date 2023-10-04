@@ -1,5 +1,4 @@
-import ReceptBook from "shared/static/icons/png/recept.png";
-import VineBook from "shared/static/icons/png/vine.png";
+import Books from "shared/static/icons/png/books.png";
 import FitnessBook from "shared/static/icons/png/fitness.png";
 
 const storageKeyPrefix = "product_";
@@ -22,43 +21,50 @@ export const data: Record<string, TQR> = {
     name: "Электромельница",
     brand: "GreekDar",
     theme: "coffeeDark",
-    giftName: "Рецепты красоты и молодости. Натуральные средства для женского сияния.",
-    giftImage: ReceptBook,
+    giftName: "",
+    giftImage: Books,
   },
   "powerbank-1": {
     name: "Продукт Dark Shark",
     brand: "DMS",
     theme: "neon",
-    giftName: "Комфортный фитнес. Секреты эффективных домашних тренировок.",
+    giftName: "«Комфортный фитнес. Секреты эффективных домашних тренировок.»",
     giftImage: FitnessBook,
   },
   "darsonval": {
     name: "Аппарат Дарсонваль",
     brand: "GreekDar",
     theme: "sea",
-    giftName: "Рецепты красоты и молодости. Натуральные средства для женского сияния.",
-    giftImage: ReceptBook,
+    giftName: "",
+    giftImage: Books,
   },
   "vinnabor": {
     name: "Винный набор",
     brand: "GreekDar",
     theme: "vine",
-    giftName: "Вино как отдельный вид искусства. Мастерство создания и искусство потребления.",
-    giftImage: VineBook,
+    giftName: "",
+    giftImage: Books,
   },
   "blender": {
     name: "Блендер",
     brand: "GreekDar",
     theme: "fruits",
-    giftName: "Рецепты красоты и молодости. Натуральные средства для женского сияния.",
-    giftImage: ReceptBook,
+    giftName: "",
+    giftImage: Books,
   },
   "stoliki": {
     name: "Столика-поднос",
     brand: "GreekDar",
     theme: "coffeeLight",
-    giftName: "Вино как отдельный вид искусства. Мастерство создания и искусство потребления.",
-    giftImage: VineBook,
+    giftName: "",
+    giftImage: Books,
+  },
+  "GreekDarproducts": {
+    name: "Продукты Greek Dar",
+    brand: "GreekDar",
+    theme: "coffeeDark",
+    giftName: "",
+    giftImage: Books,
   },
 };
 
@@ -137,9 +143,10 @@ export const allowsKeys = [
   `${storageKeyPrefix}vinnabor`,
   `${storageKeyPrefix}blender`,
   `${storageKeyPrefix}stoliki`,
+  `${storageKeyPrefix}GreekDarproducts`,
 ];
 
-export const allowsURLs = ["melniza", "powerbank-1", "darsonval", "vinnabor", "blender", "stoliki"];
+export const allowsURLs = ["GreekDarproducts", "melniza", "powerbank-1", "darsonval", "vinnabor", "blender", "stoliki"];
 
 export const setQR = (setKey: string) => {
   if (allowsKeys.indexOf(`${storageKeyPrefix}${setKey}`) > -1) {

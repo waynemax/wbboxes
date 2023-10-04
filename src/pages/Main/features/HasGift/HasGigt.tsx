@@ -21,7 +21,19 @@ const useStyles = createStyles(() => ({
     textAlign: "center",
     fontSize: "18px",
   },
-  book: {
+  gift: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "8px 0",
+    img: {
+      width: "100%",
+      margin: "auto",
+      maxWidth: "400px",
+    },
+  },
+  smallGift: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
@@ -29,7 +41,7 @@ const useStyles = createStyles(() => ({
     padding: "8px 0",
     img: {
       margin: "auto",
-      maxHeight: "130px",
+      maxHeight: "160px",
     },
   },
 }));
@@ -82,7 +94,7 @@ export const HasGigt = () => {
         <Space mt={16} />
         <div>
           <div>
-            Оставь <strong>отзыв 5 ЗВЕЗД</strong> с фотографией товара, <strong>ПРИШЛИ скриншот</strong> ниже по кнопке
+            Оставь <strong>отзыв 5 ЗВЕЗД</strong> с фотографией товара, <strong>ПРИШЛИ скриншот </strong> с отзывом ниже по кнопке
             «Забрать подарок»
           </div>
           <div className="display_flex">
@@ -90,25 +102,30 @@ export const HasGigt = () => {
               mt={12}
               mb={12}
               defaultValue={5}
-              size="md"
+              size="xl"
               value={5}
               color={switchMatch(url, {
                 default: "yellow",
               })}
-              sx={{
-                margin: "auto",
-              }}
+              sx={{ margin: "auto", " svg": config.brand.toLowerCase() === "dms" ? {} : { width: "3rem", height: "3rem" }}}
             />
           </div>
-          <div style={{ fontSize: "16px" }}>Мы подарим тебе уникальную книгу, разработанную всей нашей командой:</div>
+          <div style={{ fontSize: "16px" }}>
+            {config.brand.toLowerCase() === "dms" ? "Мы подарим тебе уникальную книгу, разработанную всей нашей командой:" : "Мы подарим тебе одну из наших уникальных книг, разработанных всей нашей командой!"}
+          </div>
         </div>
         <Space mt={16} />
-        <div>
-          <strong style={{ fontSize: "16px" }}>«{config.giftName}»</strong>
-        </div>
-        <div className={classes.book}>
+        {config.brand.toLowerCase() === "dms" && <div>
+          <strong>{config.giftName}</strong>
+        </div>}
+        <div className={config.brand.toLowerCase() === "dms" ? classes.smallGift : classes.gift}>
           <img alt="book" src={config.giftImage} />
         </div>
+        {config.brand.toLowerCase() === "greekdar" && <div>
+          <strong style={{ fontSize: "16px" }}>
+            GreekDar: эстетика в каждом мгновении, совершенство в каждом изделии.
+          </strong>
+        </div>}
         <Space mt={16} />
       </div>
       <Button
@@ -116,10 +133,11 @@ export const HasGigt = () => {
         size="xl"
         radius="lg"
         onClick={() => {
+          //
           window.location.href = `https://wa.me/79801926715?text=${encodeURIComponent(
-            "Здравствуйте! Хочу забрать свой приз - книгу «",
-          )}${encodeURIComponent(config.giftName)}${encodeURIComponent(
-            "»! Условия для получения выполнил! Прикрепляю скриншот с отзывом. (прикрепите скриншот к сообщению)”",
+            "Здравствуйте! Хочу забрать свой приз - книгу от вашей команды!",
+          )}${encodeURIComponent(
+            " Условия для получения выполнил! Прикрепляю скриншот с отзывом. (прикрепите скриншот к сообщению)",
           )}`;
         }}
         sx={{
