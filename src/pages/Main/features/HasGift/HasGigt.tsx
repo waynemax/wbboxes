@@ -104,27 +104,33 @@ export const HasGigt = () => {
               defaultValue={5}
               size="xl"
               value={5}
-              color={switchMatch(url, {
+              color={switchMatch(url.toLowerCase(), {
+                "elladafit": "#dab44f",
                 default: "yellow",
               })}
               sx={{ margin: "auto", " svg": config.brand.toLowerCase() === "dms" ? {} : { width: "3rem", height: "3rem" }}}
             />
           </div>
           <div style={{ fontSize: "16px" }}>
-            {config.brand.toLowerCase() === "dms" ? "Мы подарим тебе уникальную книгу, разработанную всей нашей командой:" : "Мы подарим тебе одну из наших уникальных книг, разработанных всей нашей командой!"}
+            {config.brand.toLowerCase() === "dms" || config.brand.toLowerCase() === "ellada" ? "Мы подарим тебе уникальную книгу, разработанную всей нашей командой:" : "Мы подарим тебе одну из наших уникальных книг, разработанных всей нашей командой!"}
           </div>
         </div>
         <Space mt={16} />
         {config.brand.toLowerCase() === "dms" && <div>
           <strong>{config.giftName}</strong>
         </div>}
-        <div className={config.brand.toLowerCase() === "dms" ? classes.smallGift : classes.gift}>
+        <div className={config.brand.toLowerCase() === "dms" || config.brand.toLowerCase() === "ellada" ? classes.smallGift : classes.gift}>
           <img alt="book" src={config.giftImage} />
         </div>
         {config.brand.toLowerCase() === "greekdar" && <div>
           <strong style={{ fontSize: "16px" }}>
             GreekDar: эстетика в каждом мгновении, совершенство в каждом изделии.
           </strong>
+        </div>}
+        {config.brand.toLowerCase() === "ellada" && <div style={{ paddingBottom: "12px" }}>
+          <span style={{ fontSize: "16px", fontStyle: "italic" }}>
+            Потрясите мир своей жизненной энергией, совершенством и красотой вместе с Ellada Fit.
+          </span>
         </div>}
         <Space mt={16} />
       </div>

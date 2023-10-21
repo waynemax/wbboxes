@@ -1,16 +1,17 @@
 import Books from "shared/static/icons/png/books.png";
 import FitnessBook from "shared/static/icons/png/fitness.png";
+import ComfortElladaFitnessBook from "shared/static/icons/png/comfort_fit.png";
 
 const storageKeyPrefix = "product_";
 const storageKey = "qr_";
 
-type TTheme = "fruits" | "vine" | "sea" | "neon" | "coffeeLight" | "coffeeDark";
+type TTheme = "fruits" | "vine" | "sea" | "neon" | "coffeeLight" | "coffeeDark" | "darkGold";
 
 // const themesEnum: TTheme[] = ["fruits", "vine", "sea", "neon", "coffeeLight", "coffeeDark"];
 
 type TQR = {
   name: string;
-  brand: string;
+  brand: "GreekDar" | "DMS" | "Ellada";
   theme: TTheme;
   giftName: string;
   giftImage: any;
@@ -65,6 +66,13 @@ export const data: Record<string, TQR> = {
     theme: "coffeeDark",
     giftName: "",
     giftImage: Books,
+  },
+  "ElladaFit": {
+    name: "Продукты Ellada Fit",
+    brand: "Ellada",
+    theme: "darkGold",
+    giftName: "",
+    giftImage: ComfortElladaFitnessBook,
   },
 };
 
@@ -134,6 +142,14 @@ export const ThemesColors: {
     buttonBackgroundColor: "#3d2f21",
     textColorOnButton: "#ffffff",
   },
+  darkGold: {
+    backgroundColor: "#151515",
+    primaryColor: "#E7D5A4",
+    borderColor: "#E7D5A4",
+    textColor: "#ffffff",
+    buttonBackgroundColor: "#333",
+    textColorOnButton: "#fff",
+  },
 };
 
 export const allowsKeys = [
@@ -144,9 +160,10 @@ export const allowsKeys = [
   `${storageKeyPrefix}blender`,
   `${storageKeyPrefix}stoliki`,
   `${storageKeyPrefix}GreekDarproducts`,
+  `${storageKeyPrefix}ElladaFit`,
 ];
 
-export const allowsURLs = ["GreekDarproducts", "melniza", "powerbank-1", "darsonval", "vinnabor", "blender", "stoliki"];
+export const allowsURLs = ["ElladaFit", "GreekDarproducts", "melniza", "powerbank-1", "darsonval", "vinnabor", "blender", "stoliki"];
 
 export const setQR = (setKey: string) => {
   if (allowsKeys.indexOf(`${storageKeyPrefix}${setKey}`) > -1) {

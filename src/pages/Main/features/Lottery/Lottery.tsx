@@ -8,11 +8,13 @@ import GreekDarLogo from "shared/static/icons/png/greekdar.png";
 import GreekDarLogoBlack from "shared/static/icons/png/greekdar_black.png";
 // import DMSLogoBlack from "shared/static/icons/png/dms_black.png";
 import GiftCofee from "shared/static/icons/png/gift_coffee.png";
+import GiftGold from "shared/static/icons/png/gift_gold.png";
 import GiftGreen from "shared/static/icons/png/gift_green.png";
 import GiftRed from "shared/static/icons/png/gift_red.png";
 import GiftViolet from "shared/static/icons/png/gift_violet.png";
 import GiftYellow from "shared/static/icons/png/gift_yellow.png";
 import DMSLogo from "shared/static/icons/png/dms.png";
+import ElladaLogo from "shared/static/icons/png/ellada.png";
 import { HasGigt } from "../HasGift";
 
 const useStyles = createStyles(() => ({
@@ -112,6 +114,7 @@ export const Lottery = () => {
               {switchMatch(config.theme, {
                 coffeeLight: <img src={GreekDarLogoBlack} alt="gd" />,
                 default: switchMatch(config.brand.toLowerCase(), {
+                  ellada: <img src={ElladaLogo} alt="Ellada" />,
                   greekdar: <img src={GreekDarLogo} alt="greek dar" />,
                   dms: <img src={DMSLogo} alt="dms" />,
                   default: <img src={GreekDarLogo} alt="greek dar" />,
@@ -174,13 +177,14 @@ export const Lottery = () => {
                   <div className={classes.giftIconWrapper}>
                     <img
                       alt="gift"
-                      src={switchMatch(url, {
+                      src={switchMatch(url.toLowerCase(), {
                         "melniza": GiftCofee,
                         "blender": GiftCofee,
                         "vinnabor": GiftRed,
                         "darsonval": GiftGreen,
                         "stoliki": GiftRed,
                         "powerbank-1": GiftViolet,
+                        "elladafit": GiftGold,
                         "default": GiftYellow,
                       })}
                     />
