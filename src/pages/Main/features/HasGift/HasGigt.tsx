@@ -140,7 +140,7 @@ export const HasGigt = () => {
         radius="lg"
         onClick={() => {
           //
-          window.location.href = `https://wa.me/79801926715?text=${encodeURIComponent(
+          window.location.href = `https://wa.me/79804697670?text=${encodeURIComponent(
             "Здравствуйте! Хочу забрать свой приз - книгу от вашей команды!",
           )}${encodeURIComponent(
             " Условия для получения выполнил! Прикрепляю скриншот с отзывом. (прикрепите скриншот к сообщению)",
