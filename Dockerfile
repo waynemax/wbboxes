@@ -1,5 +1,5 @@
 # Используем официальный образ Node.js версии 18
-FROM node:18
+FROM node:18 AS builder
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
@@ -16,14 +16,14 @@ COPY . .
 # Строим приложение
 RUN yarn build
 
-# Устанавливаем Nginx для раздачи статических файлов
-RUN apt-get update && apt-get install -y nginx
+# Используем официальный образ Nginx
+FROM nginx:alpine
+
+# Копируем собранные файлы из предыдущего этапа
+COPY --from=builder /app/build /usr/share/nginx/html
 
 # Копируем конфигурационный файл Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Удаляем ненужные файлы для уменьшения размера образа
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Открываем порт 80
 EXPOSE 80
