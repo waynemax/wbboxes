@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@types/router5": "latest",
+    "@types/router5": "^5.0.0",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.0.0",
@@ -63,7 +63,6 @@
     "typescript": "*"
   },
   "scripts": {
-    "install": "npm install --force --legacy-peer-deps",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "serve-build": "serve -s build",
