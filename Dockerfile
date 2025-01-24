@@ -4,11 +4,8 @@ FROM node:16
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Устанавливаем Yarn
-RUN npm install -g yarn
-
 # Копируем package.json и yarn.lock в рабочую директорию
-COPY package*.json ./
+COPY package*.json yarn.lock ./
 
 # Устанавливаем зависимости
 RUN yarn install

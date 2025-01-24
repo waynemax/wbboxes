@@ -1711,7 +1711,7 @@
   dependencies:
     "@mantine/utils" "6.0.19"
 
-"@mantine/core@^6.0.19":
+"@mantine/core@6.0.19":
   version "6.0.19"
   resolved "https://registry.yarnpkg.com/@mantine/core/-/core-6.0.19.tgz#612413f0e8eb117e6a39068a625c6ccf2ae2ccdd"
   integrity sha512-SvMZCOgCc315SIg6hkuLM0ZnBaAac4VFDHZ0BM5LIE4MPJUpe4QOLsg/5RGxOa5s7JRCtu/dawH3/9frvfDrhw==
@@ -1750,7 +1750,7 @@
   dependencies:
     "@mantine/utils" "6.0.19"
 
-"@mantine/rte@^5.8.3":
+"@mantine/rte@5.10.5":
   version "5.10.5"
   resolved "https://registry.yarnpkg.com/@mantine/rte/-/rte-5.10.5.tgz#78a00889d3ab580eed8c6b70f43e5b1215f1aec2"
   integrity sha512-UEBVsuSM1Q1ymZLp/mSCbFMxGaC7z/5gwUYFFmkWJoO5fM/B5ZOaBKMuOHTVWhkwG5K3dgLjyXwaScSrLABiHA==
