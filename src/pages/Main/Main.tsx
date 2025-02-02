@@ -6,9 +6,9 @@ import { Lottery } from "./features";
 
 export const Main = () => {
   const { route } = useRoute();
-  const url = route?.params?.q;
+  const url = route?.params?.q.toLowerCase();
 
-  if (!(allowsURLs.indexOf(url) > -1)) {
+  if (!(allowsURLs.map((it) => it.toLowerCase()).indexOf(url.toLowerCase()) > -1)) {
     return <NotFound />;
   }
 

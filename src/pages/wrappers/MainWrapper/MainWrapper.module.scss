@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+body {
+  background: black;
+}
+
 .content {
   background-color: var(--color-background-content-area);
   flex-grow: 1;

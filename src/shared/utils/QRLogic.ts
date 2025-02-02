@@ -11,7 +11,7 @@ type TTheme = "fruits" | "vine" | "sea" | "neon" | "coffeeLight" | "coffeeDark" 
 
 type TQR = {
   name: string;
-  brand: "GreekDar" | "DMS" | "Ellada";
+  brand: "greekdar" | "DMS" | "Ellada";
   theme: TTheme;
   giftName: string;
   giftImage: any;
@@ -20,7 +20,7 @@ type TQR = {
 export const data: Record<string, TQR> = {
   "melniza": {
     name: "Электромельница",
-    brand: "GreekDar",
+    brand: "greekdar",
     theme: "coffeeDark",
     giftName: "",
     giftImage: Books,
@@ -34,40 +34,40 @@ export const data: Record<string, TQR> = {
   },
   "darsonval": {
     name: "Аппарат Дарсонваль",
-    brand: "GreekDar",
+    brand: "greekdar",
     theme: "sea",
     giftName: "",
     giftImage: Books,
   },
   "vinnabor": {
     name: "Винный набор",
-    brand: "GreekDar",
+    brand: "greekdar",
     theme: "vine",
     giftName: "",
     giftImage: Books,
   },
   "blender": {
     name: "Блендер",
-    brand: "GreekDar",
+    brand: "greekdar",
     theme: "fruits",
     giftName: "",
     giftImage: Books,
   },
   "stoliki": {
     name: "Столика-поднос",
-    brand: "GreekDar",
+    brand: "greekdar",
     theme: "coffeeLight",
     giftName: "",
     giftImage: Books,
   },
-  "GreekDarproducts": {
+  "greekdarproducts": {
     name: "Продукты Greek Dar",
-    brand: "GreekDar",
+    brand: "greekdar",
     theme: "coffeeDark",
     giftName: "",
     giftImage: Books,
   },
-  "ElladaFit": {
+  "elladafit": {
     name: "Продукты Ellada Fit",
     brand: "Ellada",
     theme: "darkGold",
@@ -159,16 +159,25 @@ export const allowsKeys = [
   `${storageKeyPrefix}vinnabor`,
   `${storageKeyPrefix}blender`,
   `${storageKeyPrefix}stoliki`,
-  `${storageKeyPrefix}GreekDarproducts`,
-  `${storageKeyPrefix}ElladaFit`,
+  `${storageKeyPrefix}greekdarproducts`,
+  `${storageKeyPrefix}elladafit`,
 ];
 
-export const allowsURLs = ["ElladaFit", "GreekDarproducts", "melniza", "powerbank-1", "darsonval", "vinnabor", "blender", "stoliki"];
+export const allowsURLs = [
+  "elladafit",
+  "greekdarproducts",
+  "melniza",
+  "powerbank-1",
+  "darsonval",
+  "vinnabor",
+  "blender",
+  "stoliki",
+];
 
 export const setQR = (setKey: string) => {
   if (allowsKeys.indexOf(`${storageKeyPrefix}${setKey}`) > -1) {
-    window?.localStorage.setItem(storageKey, setKey);
-    window?.localStorage.setItem(setKey, "1");
+    window?.localStorage.setItem(storageKey.toLowerCase(), setKey.toLowerCase());
+    window?.localStorage.setItem(setKey.toLowerCase(), "1");
   }
 };
 

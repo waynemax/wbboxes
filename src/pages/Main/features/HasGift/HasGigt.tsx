@@ -49,7 +49,7 @@ const useStyles = createStyles(() => ({
 export const HasGigt = () => {
   const { route } = useRoute();
   const { classes } = useStyles();
-  const url = route?.params?.q;
+  const url = route?.params?.q.toLowerCase();
   const { width, height } = useViewportSize();
   let config: any = {};
   const body = document.body;
@@ -58,17 +58,19 @@ export const HasGigt = () => {
   const h = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
   useEffect(() => {
-    document.body.style.backgroundColor = `${ThemesColors[config.theme ?? "default"].backgroundColor}`;
+    if (config?.theme) {
+      document.body.style.backgroundColor = `${ThemesColors[config.theme ?? "default"].backgroundColor}`;
+    }
   }, [config?.theme]);
 
-  if (!(allowsURLs.indexOf(url) > -1)) {
+  if (!(allowsURLs.map((it) => it.toLowerCase()).indexOf(url.toLowerCase()) > -1)) {
     return <NotFound />;
   }
 
   const currentStorageQR = getQR();
 
-  if (!localStorage.getItem(url)) {
-    if (!(allowsURLs.indexOf(currentStorageQR!) > -1)) {
+  if (!localStorage.getItem(url.toLowerCase())) {
+    if (!(allowsURLs.map((it) => it.toLowerCase()).indexOf(currentStorageQR!) > -1)) {
       return <NotFound />;
     }
   }
@@ -94,8 +96,8 @@ export const HasGigt = () => {
         <Space mt={16} />
         <div>
           <div>
-            Оставь <strong>отзыв 5 ЗВЕЗД</strong> с фотографией товара, <strong>ПРИШЛИ скриншот </strong> с отзывом ниже по кнопке
-            «Забрать подарок»
+            Оставь <strong>отзыв 5 ЗВЕЗД</strong> с фотографией товара, <strong>ПРИШЛИ скриншот </strong> с отзывом ниже
+            по кнопке «Забрать подарок»
           </div>
           <div className="display_flex">
             <Rating
@@ -105,33 +107,49 @@ export const HasGigt = () => {
               size="xl"
               value={5}
               color={switchMatch(url.toLowerCase(), {
-                "elladafit": "#dab44f",
+                elladafit: "#dab44f",
                 default: "yellow",
               })}
-              sx={{ margin: "auto", " svg": config.brand.toLowerCase() === "dms" ? {} : { width: "3rem", height: "3rem" }}}
+              sx={{
+                "margin": "auto",
+                " svg": config.brand.toLowerCase() === "dms" ? {} : { width: "3rem", height: "3rem" },
+              }}
             />
           </div>
           <div style={{ fontSize: "16px" }}>
-            {config.brand.toLowerCase() === "dms" || config.brand.toLowerCase() === "ellada" ? "Мы подарим тебе уникальную книгу, разработанную всей нашей командой:" : "Мы подарим тебе одну из наших уникальных книг, разработанных всей нашей командой!"}
+            {config.brand.toLowerCase() === "dms" || config.brand.toLowerCase() === "ellada"
+              ? "Мы подарим тебе уникальную книгу, разработанную всей нашей командой:"
+              : "Мы подарим тебе одну из наших уникальных книг, разработанных всей нашей командой!"}
           </div>
         </div>
         <Space mt={16} />
-        {config.brand.toLowerCase() === "dms" && <div>
-          <strong>{config.giftName}</strong>
-        </div>}
-        <div className={config.brand.toLowerCase() === "dms" || config.brand.toLowerCase() === "ellada" ? classes.smallGift : classes.gift}>
+        {config.brand.toLowerCase() === "dms" && (
+          <div>
+            <strong>{config.giftName}</strong>
+          </div>
+        )}
+        <div
+          className={
+            config.brand.toLowerCase() === "dms" || config.brand.toLowerCase() === "ellada"
+              ? classes.smallGift
+              : classes.gift
+          }>
           <img alt="book" src={config.giftImage} />
         </div>
-        {config.brand.toLowerCase() === "greekdar" && <div>
-          <strong style={{ fontSize: "16px" }}>
-            GreekDar: эстетика в каждом мгновении, совершенство в каждом изделии.
-          </strong>
-        </div>}
-        {config.brand.toLowerCase() === "ellada" && <div style={{ paddingBottom: "12px" }}>
-          <span style={{ fontSize: "16px", fontStyle: "italic" }}>
-            Потрясите мир своей жизненной энергией, совершенством и красотой вместе с Ellada Fit.
-          </span>
-        </div>}
+        {config.brand.toLowerCase() === "greekdar" && (
+          <div>
+            <strong style={{ fontSize: "16px" }}>
+              GreekDar: эстетика в каждом мгновении, совершенство в каждом изделии.
+            </strong>
+          </div>
+        )}
+        {config.brand.toLowerCase() === "ellada" && (
+          <div style={{ paddingBottom: "12px" }}>
+            <span style={{ fontSize: "16px", fontStyle: "italic" }}>
+              Потрясите мир своей жизненной энергией, совершенством и красотой вместе с Ellada Fit.
+            </span>
+          </div>
+        )}
         <Space mt={16} />
       </div>
       <Button

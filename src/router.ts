@@ -1,12 +1,36 @@
 import createRouter, { Options } from "router5";
 import browserPlugin from "router5-plugin-browser";
 import listenersPlugin from "router5-plugin-listeners";
-import { Route } from "shared/definitions";
+import { Route, SubRoute } from "shared/definitions";
 import { switchMatch } from "shared/utils";
 
 export const routes = [
   ...Object.values(Route).map((el) =>
     switchMatch(el, {
+      [Route.DMS_SCREEN]: {
+        name: el,
+        path: "/dms",
+        children: {
+          name: SubRoute.DMS_SCREEN_ACTIVATE,
+          path: "/activate",
+        },
+      },
+      [Route.ELLADA_FIT_SCREEN]: {
+        name: el,
+        path: "/ellada-fit",
+        children: {
+          name: SubRoute.DMS_SCREEN_ACTIVATE,
+          path: "/activate",
+        },
+      },
+      [Route.GREEKDAR_SCREEN]: {
+        name: el,
+        path: "/gd",
+        children: {
+          name: SubRoute.DMS_SCREEN_ACTIVATE,
+          path: "/activate",
+        },
+      },
       [Route.MAIN_SCREEN]: {
         name: el,
         path: "/:q<[a-zA-z0-9-]{1,16}>",

@@ -69,7 +69,7 @@ const useStyles = createStyles(() => ({
 
 export const Lottery = () => {
   const { route } = useRoute();
-  const url = route?.params?.q;
+  const url = route?.params?.q.toLowerCase();
   const { classes } = useStyles();
   const [isLotteryStep, setIsLotteryStep] = useState(false);
   const [isRedirect, setIsRedirect] = useState(false);
@@ -185,6 +185,7 @@ export const Lottery = () => {
                         "stoliki": GiftRed,
                         "powerbank-1": GiftViolet,
                         "elladafit": GiftGold,
+                        "greekdarproducts": GiftYellow,
                         "default": GiftYellow,
                       })}
                     />
