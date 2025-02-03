@@ -44,7 +44,7 @@ export const TMPage = () => {
               switchMatch(routeName, {
                 [Route.ELLADA_FIT_SCREEN]: "Спасибо за покупку продукции авторского бренда Ellada Fit!",
                 [Route.GREEKDAR_SCREEN]: "Спасибо за покупку продукции авторского бренда GreekDar!",
-                default: "Спасибо, что приобрели товар от нашего бренда DMS Electronics.",
+                default: "Спасибо, что приобрели товар от нашего бренда DMS.",
               })}
             {isActivate && "Дорогой покупатель"}
           </h1>
