@@ -88,7 +88,9 @@ export const TMPage = () => {
           <div
             className={classes.section}
             onClick={() => {
-              window.location.href = `/${route.name}/activate`;
+              window.location.href = `https://wa.me/79801926715?text=${encodeURIComponent(
+                "Здравствуйте! Хочу активировать гарантию на ваш товар. Конкретную модель товара назову в следующем сообщении.",
+              )}`;
             }}
             style={{
               backgroundImage: `url(/images/${switchMatch(routeName, {
